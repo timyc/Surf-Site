@@ -1,0 +1,26 @@
+{
+  "name": "surf-site",
+  "version": "1.0.0",
+  "description": "surf site for Boner Surf",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tim Chen",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.2",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "mysql": "^2.18.1",
+    "passport": "^0.4.1",
+    "passport-steam": "^1.0.12",
+    "request": "^2.88.2",
+    "steam-web": "latest",
+    "@passport-next/passport-openid": "latest"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  }
+}

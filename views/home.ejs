@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Surf.">
+    <meta name="keywords" content="some,meta,tags">
+    <meta name="viewport" content="initial-scale=1">
+    <title><%= title %> CSGO Surf</title>
+    <!-- Bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="js/BigInteger.min.js"></script>
+    <script src="js/converter-min.js"></script>
+</head>
+<noscript>
+    <meta http-equiv="Refresh" content="0;url=nojs">
+</noscript>
+<style>
+    body {
+        background-image:
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.99), rgba(0, 0, 0, 0.70)),
+                url('img/bg2.jpg');
+
+        width: 100%;
+        height: 100vh;
+        background-size: cover;
+    }
+    ul li{
+        font-size:20px;
+    }
+    ul {
+        text-align: center;
+        list-style-position: inside;
+    }
+    .col {
+        padding: 0;
+    }
+    /* width */
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #000;
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #3366cc;
+    }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #24478f;
+    }
+</style>
+<body class="text-white bg-dark">
+
+    <div class="container">
+        <nav class="navbar navbar-dark">
+            <a class="navbar-brand" href="#">
+                <!-- <img src="/docs/4.4/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">-->
+                <%= title %> CSGO Surf
+            </a>
+        </nav>
+        <div class="row">
+            <div class="col">
+                <% if (!user) { %>
+                    <p class="text-center text-warning">You're not logged in! Sign in using the button below!</p>
+                    <p class="text-center"><a href="auth/steam"><img src="img/steam_login.png"></a></p>
+                <% } else { %>
+                    <h3 class="text-center">Logged in as <a href="https://steamcommunity.com/profiles/<%= user.id %>/" target="_blank"><%= user.displayName %></a> - <a class="text-danger" href='logout'>Logout</a></h3>
+                    <h4 class="text-center">SteamID: <span class="text-secondary" id="SteamIDOG"></span> (IF YOU DON'T SEE THE ID, DON'T PURCHASE!)</h4>
+                    <p class="text-center">Please verify that you logged in with the correct account by clicking your name.</p>
+                <% } %>
+            </div>
+        </div>
+        <% if (user) { %>
+            <div class="row" style="min-height:500px">
+                <div class="col text-center" style="background: rgba(80, 50, 20, 0.3); line-height: 200%; margin-right:5px"><h2>- <span class="text-success" style="text-shadow: 0 0 3px #000000">$7.99</span> -</h2><h2 style="background: rgba(80, 50, 20, 0.7);padding-bottom:3px;box-shadow: 1px 2px 4px rgba(0, 0, 0, .5)">1 Month VIP</h2>Custom Rank (Togglable)<br />Custom Username Color<br />Custom Chat Text Color<br />Custom Login Message<br />Reserved Slots<br />VIP-Only Server Access (SOON)<br /><br /><br /><br /><br /><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"> <input type="hidden" name="cmd" value="_s-xclick"> <input type="hidden" name="hosted_button_id" value="X32GLFHKGR7M4"><input type="hidden" name="custom" class="custompaypal" value=""> <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"> </form></div>
+                <div class="col text-center" style="background: rgba(192, 192, 192, 0.2); line-height: 200%"><h2>- <span class="text-success" style="text-shadow: 0 0 3px #000000">$17.99</span> -</h2><h2 style="background: rgba(192, 192, 192, 0.7);padding-bottom:3px;box-shadow: 1px 2px 4px rgba(0, 0, 0, .5)">3 Months VIP</h2>Custom Rank (Togglable)<br />Custom Username Color<br />Custom Chat Text Color<br />Custom Login Message<br />Reserved Slots<br />VIP-Only Server Access (SOON)<br /><br /><br /><br /><br /><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"> <input type="hidden" name="cmd" value="_s-xclick"> <input type="hidden" name="hosted_button_id" value="ZQHYX6BGKRSDL"><input type="hidden" name="custom" class="custompaypal" value=""> <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"> </form></div>
+                <div class="col text-center" style="background: rgba(255, 215, 20, 0.2); line-height: 200%; margin-left:5px"><h2>- <span class="text-success" style="text-shadow: 0 0 3px #000000">$49.99</span> -</h2><h2 style="background: rgba(255, 215, 0, 0.7);padding-bottom:3px;box-shadow: 1px 2px 4px rgba(0, 0, 0, .5)">12 Months VIP</h2>Custom Rank (Togglable)<br />Custom Username Color<br />Custom Chat Text Color<br />Custom Login Message<br />Reserved Slots<br />VIP-Only Server Access (SOON)<br /><br /><br /><br /><br /><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"> <input type="hidden" name="cmd" value="_s-xclick"> <input type="hidden" name="hosted_button_id" value="QVHY6FVMZR6YW"><input type="hidden" name="custom" class="custompaypal" value=""> <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"> </form></div>
+                <div class="col text-center" style="background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.32), rgba(117, 19, 93, 0.33)); line-height: 200%; margin-left:5px"><h2>- <span class="text-success" style="text-shadow: 0 0 3px #000000">$79.99</span> -</h2><h2 style="background: rgba(117, 19, 93, 0.7);padding-bottom:3px;box-shadow: 1px 2px 4px rgba(0, 0, 0, .5)">Lifetime VIP</h2>Custom Rank (Togglable)<br />Custom Username Color<br />Custom Chat Text Color<br />Custom Login Message<br />Reserved Slots<br />VIP-Only Server Access (SOON)<br />Discord Rank<br /><br /><br /><br /><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"> <input type="hidden" name="cmd" value="_s-xclick"> <input type="hidden" name="hosted_button_id" value="Q3YJ6XATAWPR4"><input type="hidden" name="custom" class="custompaypal" value=""> <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"> </form></div>
+            </div>
+            <script>
+                let OGSteamID = SteamIDConverter.toSteamID((<%= user.id %>).toString());
+                let customPaypal = document.getElementsByClassName('custompaypal');
+                for (let x = 0; x < customPaypal.length; x++) {
+                    customPaypal[x].value = OGSteamID;
+                }
+                document.getElementById('SteamIDOG').innerHTML = OGSteamID;
+            </script>
+        <% } %>
+        <footer>
+            <p class="text-center">&copy; 2020 <a class="text-white" href="https://www.<%= title %>/" target="_blank">Boner.GG</a> | <a class="text-white" href="https://discord.gg/Tj2WzAR" target="_blank">Discord</a></p>
+        </footer>
+    </div>
+      <!-- Bootstrap required scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

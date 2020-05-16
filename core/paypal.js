@@ -45,7 +45,7 @@ module.exports = function(req, res) {
                 let paying_player = req.body['custom'];
                 let receiver_email = req.body['receiver_email'];
                 if (receiver_email === PAYPAL_EMAIL) {
-                    if (payment_amount === 7.99) {
+                    if (parseFloat(payment_amount) === 7.99) {
                         connection.query('SELECT * FROM ck_vipadmins WHERE steamid = ?', [paying_player], function(error, results) {
                             if (error) {
                                 return console.log('ERROR FOR TXN: ' + txn_id);
@@ -53,7 +53,7 @@ module.exports = function(req, res) {
                             let d = new Date();
                             if (results.length === 0) {
                                 d.setMonth(d.getMonth() + 1);
-                                connection.query('INSERT INTO ck_vipadmins SET ?', {user: paying_player, expires: d}, function(error) {
+                                connection.query('INSERT INTO ck_vipadmins SET ?', {steamid: paying_player, vip: 1, expires: d}, function(error) {
                                     if (error) {
                                         return console.log('ERROR FOR TXN: ' + txn_id);
                                     }
@@ -75,7 +75,7 @@ module.exports = function(req, res) {
                             }
                         });
                     }
-                    if (payment_amount === 17.99) {
+                    if (parseFloat(payment_amount) === 17.99) {
                         connection.query('SELECT * FROM ck_vipadmins WHERE steamid = ?', [paying_player], function(error, results) {
                             if (error) {
                                 return console.log('ERROR FOR TXN: ' + txn_id);
@@ -83,7 +83,7 @@ module.exports = function(req, res) {
                             let d = new Date();
                             if (results.length === 0) {
                                 d.setMonth(d.getMonth() + 3);
-                                connection.query('INSERT INTO ck_vipadmins SET ?', {user: paying_player, expires: d}, function(error) {
+                                connection.query('INSERT INTO ck_vipadmins SET ?', {steamid: paying_player, vip: 1, expires: d}, function(error) {
                                     if (error) {
                                         return console.log('ERROR FOR TXN: ' + txn_id);
                                     }
@@ -105,7 +105,7 @@ module.exports = function(req, res) {
                             }
                         });
                     }
-                    if (payment_amount === 49.99) {
+                    if (parseFloat(payment_amount) === 49.99) {
                         connection.query('SELECT * FROM ck_vipadmins WHERE steamid = ?', [paying_player], function(error, results) {
                             if (error) {
                                 return console.log('ERROR FOR TXN: ' + txn_id);
@@ -113,7 +113,7 @@ module.exports = function(req, res) {
                             let d = new Date();
                             if (results.length === 0) {
                                 d.setMonth(d.getMonth() + 12);
-                                connection.query('INSERT INTO ck_vipadmins SET ?', {user: paying_player, expires: d}, function(error) {
+                                connection.query('INSERT INTO ck_vipadmins SET ?', {steamid: paying_player, vip: 1, expires: d}, function(error) {
                                     if (error) {
                                         return console.log('ERROR FOR TXN: ' + txn_id);
                                     }
@@ -135,7 +135,7 @@ module.exports = function(req, res) {
                             }
                         });
                     }
-                    if (payment_amount === 79.99) {
+                    if (parseFloat(payment_amount) === 79.99) {
                         connection.query('SELECT * FROM ck_vipadmins WHERE steamid = ?', [paying_player], function(error, results) {
                             if (error) {
                                 return console.log('ERROR FOR TXN: ' + txn_id);
@@ -143,7 +143,7 @@ module.exports = function(req, res) {
                             let d = new Date();
                             if (results.length === 0) {
                                 d.setMonth(d.getMonth() + 144);
-                                connection.query('INSERT INTO ck_vipadmins SET ?', {user: paying_player, expires: d}, function(error) {
+                                connection.query('INSERT INTO ck_vipadmins SET ?', {steamid: paying_player, vip: 1, expires: d}, function(error) {
                                     if (error) {
                                         return console.log('ERROR FOR TXN: ' + txn_id);
                                     }

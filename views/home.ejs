@@ -69,6 +69,7 @@
                     <h3 class="text-center">Logged in as <a href="https://steamcommunity.com/profiles/<%= user.id %>/" target="_blank"><%= user.displayName %></a> - <a class="text-danger" href='logout'>Logout</a></h3>
                     <h4 class="text-center">SteamID: <span class="text-secondary" id="SteamIDOG"></span> (IF YOU DON'T SEE THE ID, DON'T PURCHASE!)</h4>
                     <p class="text-center">Please verify that you logged in with the correct account by clicking your name.</p>
+                    <p class="text-center" id="SteamID64" style="display: none"><%= user.id %></p>
                 <% } %>
             </div>
         </div>
@@ -80,7 +81,7 @@
                 <div class="col text-center" style="background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.32), rgba(117, 19, 93, 0.33)); line-height: 200%; margin-left:5px"><h2>- <span class="text-success" style="text-shadow: 0 0 3px #000000">$79.99</span> -</h2><h2 style="background: rgba(117, 19, 93, 0.7);padding-bottom:3px;box-shadow: 1px 2px 4px rgba(0, 0, 0, .5)">Lifetime VIP</h2>Custom Rank (Togglable)<br />Custom Username Color<br />Custom Chat Text Color<br />Custom Login Message<br />Reserved Slots<br />VIP-Only Server Access (SOON)<br />Discord Rank<br /><br /><br /><br /><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"> <input type="hidden" name="cmd" value="_s-xclick"> <input type="hidden" name="hosted_button_id" value="Q3YJ6XATAWPR4"><input type="hidden" name="custom" class="custompaypal" value=""> <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"> </form></div>
             </div>
             <script>
-                let OGSteamID = SteamIDConverter.toSteamID((<%= user.id %>).toString());
+                let OGSteamID = SteamIDConverter.toSteamID(document.getElementById('SteamID64').innerHTML);
                 let customPaypal = document.getElementsByClassName('custompaypal');
                 for (let x = 0; x < customPaypal.length; x++) {
                     customPaypal[x].value = OGSteamID;
